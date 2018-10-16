@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta charset="UTF-8">
+    <title>Random Quote Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body onload="makeVisible()">
+
+    <section class="main" id="quote-box">
+        <div class="mb-wrap mb-style-2" id="text">
+            <div class="kasparov"><img src="kasparov.jpeg" alt="kasparov"></div>
+            <blockquote>
+
+                <p class="invisible" id="1"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>“There is no
+                    one that can share your responsibility. It it is your responsibility you must carry it on and you
+                    must be responsible for your actions. At the end of the day we all are being challenged, sooner or
+                    later, by our destiny. And it's up to us to make all the difference in this life. If not you, who
+                    else?” </p>
+                <p class="invisible" id="2"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>If you're
+                    already in a fight, you want the first blow to be the last and you had better be the one to throw
+                    it.</p>
+                <p class="invisible" id="3"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>The point of
+                    modern propaganda isn't only to misinform or push an agenda. It is to exhaust your critical
+                    thinking, to annihilate truth.</p>
+                <p class="invisible" id="4"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>Somehow,
+                    people always forget that it's much easier to install a dictator than to remove one. </p>
+                <p class="invisible" id="5"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>Typically,
+                    however, the winner is just the player who made the next-to-last mistake. </p>
+                <p class="invisible" id="6"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>If you program
+                    a machine, you know what it’s capable of. If the machine is programming itself, who knows what it
+                    might do?</p>
+                <p class="invisible" id="7"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>Focusing on
+                    your strengths is required for peak performance, but improving your weaknesses has the potential
+                    for the greatest gains.</p>
+                <p class="invisible" id="8"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>To become good
+                    at anything you have to know how to apply basic principles. To become great at it, you have to know
+                    when to violate those principles. </p>
+                <p class="invisible" id="9"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>The ability to
+                    work hard for days on end without losing focus is a talent. The ability to keep absorbing new
+                    information after many hours of study is a talent.</p>
+                <p class="invisible" id="10"><i class="fa fa-quote-left fa-3x fa-pull-left fa-border"></i>One of the
+                    strengths, and weaknesses, of liberal democratic societies is giving the benefit of the doubt even
+                    to one's enemies</p>
+            </blockquote>
+
+
+
+        </div>
+
+
+        <div class="bottom">
+            <p class="invisible mb-author" id="11">Garry Kasparov</p>
+            <p class="invisible mb-author" id="12">Garry Kasparov</p>
+            <button class="button" onclick="makeVisible()" id="new-quote">Click me</button>
+        </div>
+
+
+
+    </section>
+
+
+
+</body>
+
+<script>
+
+    function getRandomInt(min, max) {
+
+        min = Math.ceil(1);
+        max = Math.floor(11);
+        return Math.floor(Math.random() * (max - min)) + min;
+    }
+
+    function makeVisible() {
+
+        var quotebyid = document.getElementById(`${getRandomInt()}`);
+        var quotesbytag = document.getElementsByTagName("p");
+        var authorid = document.getElementById("11");
+        var authorid2 = document.getElementById("12");
+
+        var i;
+        for (i = 0; i < quotesbytag.length; i++) {
+
+            quotesbytag[i].classList.add("invisible");
+            quotebyid.classList.remove("invisible");
+
+            if (authorid.classList.contains("invisible") && !authorid2.classList.contains("invisible")) {
+                authorid.classList.remove("invisible");
+
+            }
+            else if (authorid.classList.contains("invisible") && authorid2.classList.contains("invisible")) {
+                authorid2.classList.remove("invisible");
+
+            }
+
+        }
+
+    }
+
+    document.addEventListener("onclick", makeVisible);
+
+
+</script>
+
+</html>
